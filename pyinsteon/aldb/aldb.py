@@ -148,6 +148,8 @@ class ALDB(ALDBBase):
             )
 
         self.set_load_status()
+        if self._status == ALDBStatus.LOADED:
+            get_health(self._address).record_success()
 
         return self._status
 
